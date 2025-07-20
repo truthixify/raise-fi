@@ -38,7 +38,7 @@
 ## 🚀 Quick Start
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/truthixify/raisefi.git
+git clone https://github.com/truthixify/raise-fi.git
 cd contract && forge install
 ```
 
