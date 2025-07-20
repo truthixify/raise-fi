@@ -83,6 +83,11 @@ contract Vault {
      */
     error NoFundsToClaim();
 
+    /**
+     * @notice Thrown if the contributor tries funds less than or equal to zero.
+     */
+    error InvalidAmount();
+
     // --- Functions ---
 
     /**
@@ -102,6 +107,9 @@ contract Vault {
      * Reverts if the funding period is over or if the contribution exceeds the target amount.
      */
     function fund() external payable {
+        if (msg.value <= 0) {
+            revert InvalidAmount();
+        }
         if (block.timestamp >= fundingEndTime) {
             revert FundingPeriodOver();
         }
